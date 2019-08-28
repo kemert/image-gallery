@@ -1,0 +1,76 @@
+
+progress {
+  width: 200px;
+}
+.upload {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 100%;
+  outline: none;
+  font-family: "arial black";
+  font-variant: small-caps;
+  font-size: 14px;
+  width: 75px;
+  height: 75px;
+  border: none;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.3s;
+  opacity: 0.7;
+}
+.upload:hover {
+  opacity: 1.0;
+}
+.pushed {
+  box-shadow: 1px 1px 1px black;
+  transform: translateY(2px);
+}
+.openModalButton {
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   width: 100px;
+   height: 80px;
+}
+.closeModalButton {
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  right: 7px;
+}
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modalContent {
+  margin-top: 100px;
+  border: 2px solid #fff;
+  background-color: #c3c3c3;
+  padding: 50px;
+  position: relative;
+}
+.imgPlaceholder {
+  width: 200px;
+  height: 150px;
+  margin: auto;
+  border: 1px solid black;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.imgPreview {
+  margin: auto;
+  display: block;
+  border: 1px solid black;
+}
