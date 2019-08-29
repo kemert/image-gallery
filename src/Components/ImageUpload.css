@@ -25,11 +25,23 @@ progress {
   transform: translateY(2px);
 }
 .openModalButton {
-   position: absolute;
-   top: 10px;
-   right: 20px;
-   width: 100px;
-   height: 80px;
+  color: #fff;
+  font-size: 1.5em;
+  background-color: transparent;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 90px;
+  height: 80px;
+  border-radius: 100%;
+  border: none;
+  border: 3px solid #fff;
+  font-weight: bold;
+  animation-name: show;
+  animation-duration: 3s;
+}
+.openModalButton:hover {
+    cursor: pointer
 }
 .closeModalButton {
   position: absolute;
@@ -55,6 +67,10 @@ progress {
   background-color: #c3c3c3;
   padding: 50px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .imgPlaceholder {
   width: 200px;
@@ -73,4 +89,18 @@ progress {
   margin: auto;
   display: block;
   border: 1px solid black;
+}
+@media (max-width: 600px) {
+    .openModalButton {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        font-size: 0.7em;
+    }
+}
+@keyframes show {
+    0% {transform: scale(0)}
+    50% {transform: scale(0)}
+    75% {transform: scale(1.2)}
+    100% {transform: scale(1)}
 }

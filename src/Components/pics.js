@@ -1,4 +1,5 @@
 import React from "react"
+import style from "./pics.css"
 
 import {storage, firebase} from "../firebase"
 import Pic from "./pic.js"
@@ -26,8 +27,10 @@ class Pics extends React.Component {
             return <Pic key={this.state.allPics[el].id} url={this.state.allPics[el].url} />
         })
         return(
-            <div>
+            <div className={style.centered}>
+              <ul>
                 {upArray}
+              </ul>
             </div>
         )
     }

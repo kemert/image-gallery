@@ -17,6 +17,7 @@ class ImageUpload extends React.Component {
         this.handleUpload = this.handleUpload.bind(this)
         this.mouseDown = this.mouseDown.bind(this)
         this.mouseUp = this.mouseUp.bind(this)
+        this.mouseOut = this.mouseOut.bind(this)
         this.openModal = this.openModal.bind(this)
         this.closeModal = this.closeModal.bind(this)
     }
@@ -50,12 +51,18 @@ class ImageUpload extends React.Component {
                     updates['Posts/' + postKey] = postData
                     firebase.database().ref().update(updates)
                 })
+                if (this.state.progress === 100) {
+                  setTimeout(() => {alert("Updated succesfully. Refresh page to update gallery.")}, 1000)
+                }
             })
     }
     mouseDown() {
       this.setState({pushed: true})
     }
     mouseUp() {
+      this.setState({pushed: false})
+    }
+    mouseOut() {
       this.setState({pushed: false})
     }
     openModal() {
@@ -87,7 +94,8 @@ class ImageUpload extends React.Component {
           <div>
             <button onClick={this.openModal}
                     className={style.openModalButton}>
-                    Upload your image
+                    {this.props.title}
+
             </button>
 
             <div style={{display: this.state.displayModal ? "flex" : "none"}} className={style.modal}>
@@ -107,7 +115,7 @@ class ImageUpload extends React.Component {
                     <div className={style.imgPlaceholder}>Place for your file</div>
                 }
 
-                <input type="file" onChange={this.handleChange} />
+                <input type="file" onChange={this.handleChange}  />
 
                 <br />
 
@@ -115,7 +123,8 @@ class ImageUpload extends React.Component {
                         style={this.state.pushed ? pushedButt : null}
                         onClick={this.handleUpload}
                         onMouseDown={this.mouseDown}
-                        onMouseUp={this.mouseUp}>Upload
+                        onMouseUp={this.mouseUp}
+                        onMouseOut={this.mouseOut}>Upload
                 </button>
               </div>
             </div>
